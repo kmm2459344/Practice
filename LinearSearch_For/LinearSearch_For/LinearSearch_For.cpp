@@ -1,5 +1,5 @@
 //==========================================================
-//	線形探索
+//	線形探索 For文
 //==========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // printf()
@@ -16,13 +16,11 @@ int main()
 	srand(time(nullptr));
 	int dataSize;
 
-	//数値入力
 	while (true) {
 		printf("要素数:");
 		do {
 			scanf("%d", &dataSize);
 		} while (dataSize <= 0);
-
 
 		int* data = (int*)calloc(dataSize, sizeof(int));
 		if (data == nullptr) {
@@ -50,18 +48,13 @@ int main()
 
 int LinearSearch(const int data[], int dataSize, int key)
 {
-	int i = 0;
-	while (true) {
-		if (i == dataSize) {
-			return SEARCH_FAIL;
-		}
+	for (int i = 0; i < dataSize; i++) {
 		if (data[i] == key) {
 			return i;
 		}
-		i++;
 	}
+	return SEARCH_FAIL;
 }
-
 
 int getRandRange(int min, int max)
 {
