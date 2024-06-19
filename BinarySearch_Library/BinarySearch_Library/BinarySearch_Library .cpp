@@ -9,6 +9,7 @@
 int CompareInt(const int* a, const int* b);
 int getRandRange(int min, int max);
 
+
 int main()
 {
 	srand(time(nullptr));
