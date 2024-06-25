@@ -51,7 +51,7 @@ int SumOfN_GaussMethod(int n)
 	// ここをコーディングします
 	// nが奇数の時に注意してください。
 	int middleValue = (n % 2 == 0) ? n / 2 : (n + 1) / 2;
-	int sum = n * middleValue;
+	int sum = n * middleValu;
 
 	return sum;
 }
