@@ -1,10 +1,12 @@
 ﻿//==========================================================
-//	1〜Nの総和　式を表示する
+//	1〜Nの総和　ガウスの方法
 //==========================================================
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // sscanf(),scanf(),printf()
+#include <stdlib.h> // exit()
 // 関数プロトタイプ
 int SumOfN(int n);
+int SumOfN_GaussMethod(int n);
 void calcSum(int N);
 
 int main(int argc, char* argv[])
@@ -25,23 +27,27 @@ int main(int argc, char* argv[])
 }
 void calcSum(int N)
 {
-	int sum = SumOfN(N);
-	int cnt = N;
-	// ここをコーディングしてください。
-	//  ヒント: "数値 + "か"数値 = " を表示する 
-	//  '+' か '=' かは３項演算子を使うと良い
-	for (int i = 0; i < N; i++) {
-		printf("数値%d + %d = %d \n", 1, N + i,(N + i)+ 1);
+	int sum1 = SumOfN_GaussMethod(N);
+	int sum2 = SumOfN(N);
+	if (sum1 != sum2) {
+		printf("ガウスの方法の結果が間違っています:N=%d,sum1=%d,sum2=%d", N, sum1, sum2);
+		exit(1);
 	}
 
-	printf("1から%dまでの総和の数%d\n", N, sum);
+	printf("1～%dの総和は%d\n", N, sum1);
 }
 
 int SumOfN(int n)
 {
 	int sum = 0;
-	for (int i = 1; i <= n; i++) {
+	for (int i = 0; i <= n; i++) {
 		sum += i;
 	}
 	return sum;
+}
+
+int SumOfN_GaussMethod(int n)
+{
+	// ここをコーディングします
+	// nが奇数の時に注意してください。
 }
