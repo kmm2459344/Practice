@@ -16,6 +16,8 @@ int main(int argc, char* argv[])
 	// ここをコーディングしてください。
 	// b<=a なら再度入力させます。
 
+
+
 	printf("%d - %d = %d\n", b, a, b - a);
 	return 0;
 }
