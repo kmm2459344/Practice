@@ -37,5 +37,16 @@ int SumOfFromTo(int from, int to)
 	// ここをコーディングしてください。
 	// from<to の場合も対応してください。
 
-
+	if (from < to) {
+		for (int i = from; i < to; i++) {
+			from = from + (i + 1);
+		}
+		return from;
+	}
+	else {
+		for (int i = to; from > i; i++) {
+			to = to + (i + 1);
+		}
+		return to;
+	}
 }
