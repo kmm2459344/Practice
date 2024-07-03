@@ -14,7 +14,9 @@ int main(int argc, char* argv[])
 	} while (a <= 0);
 
 	// ここをコーディングしてください。
-	// b<=a なら再度入力させます。r
+	// b<=a なら再度入力させます。
+
+
 
 	printf("%d - %d = %d\n", b, a, b - a);
 	return 0;
