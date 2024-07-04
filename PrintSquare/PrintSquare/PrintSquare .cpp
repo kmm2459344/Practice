@@ -30,8 +30,4 @@ void PrintSquare(int n)
 		}
 		putchar('\n');
 	}
-
-
-
-
 }
