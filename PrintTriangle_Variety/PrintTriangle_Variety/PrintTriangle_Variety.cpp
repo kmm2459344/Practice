@@ -52,7 +52,7 @@ void PrintTriangleRU(int n)
 	// ここをコーディングしましょう。
 	// 右上側が直角の２等辺三角形
 	for (int i = 1; i <= n; i++) {		// i行（i = 1, 2, … , len）
-		for (int j = 1; j <= i; j++)	// 各行にlen - i個の' 'を表示
+		for (int j = 1; j <= i - 1; j++)	// 各行にlen - i個の' 'を表示
 			putchar(' ');
 		for (int j = 1; j <= n - i; j++)		// 各行にi個の'*'を表示
 			putchar('*');
