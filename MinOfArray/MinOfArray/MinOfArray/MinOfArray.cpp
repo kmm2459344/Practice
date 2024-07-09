@@ -41,7 +41,14 @@ int main()
 int MinOfArray(int array[], int arraySize)
 {
 	// ここをコーディングしてください。
+	int min = array[0];
+	for (int i = 0; i < arraySize; i++) {
+		if (min > array[i]) {
+			min = array[i];
+		}
+	}
 
+	return min;
 }
 
 int randRange(int min, int max)
