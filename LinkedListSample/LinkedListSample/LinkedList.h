@@ -42,5 +42,6 @@ void PrintLnCurrent(const List* list);
 void Print(const List* list);
 // 線形リストの後始末
 void Terminate(List* list);
-
+// リストを16進ダンプ
+void DumpList(List* list);
 #endif // __LinkedList

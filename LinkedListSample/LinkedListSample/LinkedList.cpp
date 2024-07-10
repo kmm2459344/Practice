@@ -8,6 +8,7 @@
 // 関数プロトタイプ
 static Node* allocNode(void);
 static void setNode(Node* node, const Member x, Node* next);
+static void dumpMem(const void* adrs, int dumpSize, const char* title);
 
 // 線形リストの初期化
 void Initialize(List* list)
@@ -163,4 +164,52 @@ static void setNode(Node* node, const Member x, Node* next)
 {
 	node->data = x;
 	node->next = next;
+}
+void DumpList(List* list)
+{
+	char nodeName[100];
+	int num = 0;
+	puts("【Listダンプ】");
+	dumpMem(list, sizeof(List), "list");
+	Node* ptr = list->head;
+	while (ptr != nullptr) {
+		snprintf(nodeName, sizeof(nodeName), "node(%d)", num++);
+		dumpMem(ptr, sizeof(Node), nodeName);
+		ptr = ptr->next;
+	}
+}
+
+static void dumpMem(const void* _adrs, int dumpSize, const char* title)
+{
+	const int lineSize = 16;
+	printf("--%s--\n", title);
+	const unsigned char* adrs = (const unsigned char*)_adrs;
+
+	const unsigned char* end = &adrs[dumpSize];
+	while (adrs < end) {
+		printf("%p:", adrs);
+		for (int i = 0; i < lineSize; i++) {
+			if (&adrs[i] < end) {
+				printf(" %02x", adrs[i]);
+			}
+			else {
+				printf("   ");
+			}
+		}
+		printf(" : ");
+		for (int i = 0; i < lineSize; i++) {
+			if (&adrs[i] < end) {
+				int c = (adrs[i] >= 0x20) ? adrs[i] : '.';
+				printf("%c", c);
+			}
+			else {
+				printf(" ");
+			}
+		}
+		putchar('\n');
+		adrs += lineSize;
+	}
+	putchar('\n');
+	putchar('\n');
+	putchar('\n');
 }

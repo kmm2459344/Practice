@@ -18,6 +18,7 @@ typedef enum {
 	SEARCH_NAME,
 	PRINT_ALL,
 	CLEAR,
+	DUMP,
 } Menu;
 
 // 関数プロトタイプ
@@ -84,6 +85,9 @@ int main()
 		case CLEAR:
 			Clear(&list);
 			break;
+		case DUMP:
+			DumpList(&list);
+			break;
 		}
 		putchar('\n');
 	} while (menu != TERMINATE);
@@ -106,6 +110,7 @@ Menu SelectMenu()
 		"氏名で検索",
 		"全ノードを表示",
 		"全ノードを削除",
+		"リストダンプ"
 	};
 	int menuStrSize = sizeof(menuStr) / sizeof(menuStr[0]);
 
@@ -118,7 +123,7 @@ Menu SelectMenu()
 		}
 		printf("( 0)終了\t:");
 		scanf("%d", &ch);
-	} while (ch < TERMINATE || CLEAR < ch);
+	} while (ch < TERMINATE || DUMP < ch);
 	return (Menu)ch;
 }
 void setup(List* list)
